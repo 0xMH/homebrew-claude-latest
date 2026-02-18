@@ -4,12 +4,11 @@ cask "claude-code" do
 
   gcs = "https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases"
   resolved = `curl -sf #{gcs}/latest`.strip
-  manifest = JSON.parse(`curl -sf #{gcs}/#{resolved}/manifest.json`)
 
-  version resolved
-  sha256 manifest["platforms"]["#{os}-#{arch}"]["checksum"]
+  version :latest
+  sha256 :no_check
 
-  url "#{gcs}/#{version}/#{os}-#{arch}/claude",
+  url "#{gcs}/#{resolved}/#{os}-#{arch}/claude",
       verified: "storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/"
   name "Claude Code"
   desc "Terminal-based AI coding assistant"
