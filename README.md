@@ -22,8 +22,10 @@ brew install 0xMH/claude-latest/claude-code
 ## Upgrade
 
 ```bash
-brew upgrade
+brew upgrade --greedy-latest
 ```
+
+`--greedy-latest` is required to upgrade the cask now that its version is set `version :latest`.
 
 That's it. No scripts, no manual version bumping. The cask resolves the latest version dynamically.
 
